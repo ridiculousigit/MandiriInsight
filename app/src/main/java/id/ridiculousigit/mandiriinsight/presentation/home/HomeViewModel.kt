@@ -29,6 +29,7 @@ class HomeViewModel @Inject constructor(
     val getHeadline: Flow<UIState<List<ArticlesItem>>> = newsUseCase.executeGetHeadline()
     val getAllNews: Flow<UIState<List<ArticlesItem>>> = newsUseCase.executeGetAllNews()
     val getSearchNews: StateFlow<PagingData<ArticlesItem>> = _getSearchNews
+    val getLoadMore: Flow<PagingData<ArticlesItem>> = newsUseCase.executeGetLoadMore().cachedIn(viewModelScope)
 
     fun getSearchNews(query: String?) {
         viewModelScope.launch {

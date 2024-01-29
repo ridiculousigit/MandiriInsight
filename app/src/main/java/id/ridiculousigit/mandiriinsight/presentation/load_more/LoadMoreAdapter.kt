@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.size.ViewSizeResolver
 import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
-
-impsight.databinding.ListItemNewsGridBinding
+import id.ridiculousigit.mandiriinsight.R
+import id.ridiculousigit.mandiriinsight.common.toCustomDate
+import id.ridiculousigit.mandiriinsight.databinding.ListItemNewsGridBinding
 
 class LoadMoreAdapter : PagingDataAdapter<ArticlesItem, LoadMoreAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
 
@@ -23,10 +24,7 @@ class LoadMoreAdapter : PagingDataAdapter<ArticlesItem, LoadMoreAdapter.Articles
         override fun areContentsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {
             return oldItem == newItem
         }
-    }ort id.ridiculousigit.mandiriinsight.R
-import id.ridiculousigit.mandiriinsight.common.toCustomDate
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
-import id.ridiculousigit.mandiriin
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesItemViewHolder {
         return ArticlesItemViewHolder(

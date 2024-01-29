@@ -19,13 +19,13 @@ class NewsHeadlinePagingSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticlesItem> {
-        val position = params.key ?: 3
+        val position = params.key ?: 2
         return try {
             val response = newsApi.getHeadline(pageSize = 10, page = position)
             val list = response.body()?.articles ?: emptyList()
             LoadResult.Page(
                 data = list,
-                prevKey = if (position == 3) null else position - 1,
+                prevKey = if (position == 2) null else position - 1,
                 nextKey = if (list.isEmpty()) null else position + 1
             )
         } catch (e: IOException) {

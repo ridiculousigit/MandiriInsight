@@ -21,7 +21,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import id.ridiculousigit.mandiriinsight.common.UIState
 import id.ridiculousigit.mandiriinsight.common.calculateSpanCount
+import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
 import id.ridiculousigit.mandiriinsight.databinding.FragmentHomeBinding
+import id.ridiculousigit.mandiriinsight.presentation.load_more.LoadMoreFragmentDirections
+import id.ridiculousigit.mandiriinsight.presentation.load_more.LoadMoreLoadStateAdapter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -105,24 +108,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupAllNewsObserver() {
-        viewModel.getAllNews.onEach { state ->
-            when (state) {
-                is UIState.Loading -> {
-                    binding.progressBarAllNews.isVisible = true
-                    binding.btnLoadMore.isVisible = false
-                    allNewsAdapter.submitList(emptyList())
-                }
-                is UIState.Success -> {
-                    binding.progressBarAllNews.isVisible = false
-                    binding.btnLoadMore.isVisible = true
-                    allNewsAdapter.submitList(state.data)
-                }
-                is UIState.Error -> {
-                    binding.progressBarAllNews.isVisible = false
-                    binding.btnLoadMore.isVisible = false
-                    Toast.makeText(requireContext(), state.message, Toast.LENGTH_LONG).show()
-                }
-            }
+        viewModel.getLoadMore.onEach {
+            allNewsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }.flowWithLifecycle(lifecycle).launchIn(lifecycleScope)
     }
 
@@ -178,18 +165,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupAllNewsAdapter() {
-        binding.btnLoadMore.setOnClickListener {
-            val destination = HomeFragmentDirections.actionHomeFragmentToLoadMoreFragment()
-            findNavController().navigate(destination)
-        }
+        val loadStateHeader = LoadMoreLoadStateAdapter { allNewsAdapter.retry() }
+        val loadStateFooter = LoadMoreLoadStateAdapter { allNewsAdapter.retry() }
+        val concatAdapter = allNewsAdapter.withLoadStateHeaderAndFooter(header = loadStateHeader, footer = loadStateFooter)
 
         binding.rvAll.setHasFixedSize(true)
-        binding.rvAll.layoutManager = StaggeredGridLayoutManager(requireActivity().windowManager.calculateSpanCount(), RecyclerView.VERTICAL)
+        binding.rvAll.layoutManager = LinearLayoutManager(requireContext())
         binding.rvAll.itemAnimator = DefaultItemAnimator()
-        binding.rvAll.adapter = allNewsAdapter
-        binding.rvAll.isNestedScrollingEnabled = false
+        binding.rvAll.adapter = concatAdapter
 
         allNewsAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        allNewsAdapter.addLoadStateListener { loadState ->
+            binding.progressBarAllNews.isVisible = loadState.source.refresh is LoadState.Loading
+            binding.rvAll.isVisible = loadState.source.refresh is LoadState.NotLoading
+        }
         allNewsAdapter.onClick { _, item ->
             val destination = HomeFragmentDirections.actionHomeFragmentToDetailFragment(item.url)
             findNavController().navigate(destination)

@@ -2,6 +2,7 @@ package id.ridiculousigit.mandiriinsight.presentation.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
@@ -12,7 +13,7 @@ import id.ridiculousigit.mandiriinsight.common.toCustomDate
 import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
 import id.ridiculousigit.mandiriinsight.databinding.ListItemNewsGridBinding
 
-class HomeAllNewsAdapter : ListAdapter<ArticlesItem, HomeAllNewsAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
+class HomeAllNewsAdapter : PagingDataAdapter<ArticlesItem, HomeAllNewsAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
 
     private var _onClick: ((position: Int, item: ArticlesItem) -> Unit)? = null
 
@@ -37,7 +38,7 @@ class HomeAllNewsAdapter : ListAdapter<ArticlesItem, HomeAllNewsAdapter.Articles
     }
 
     override fun onBindViewHolder(holder: ArticlesItemViewHolder, position: Int) {
-        holder.bindItem(getItem(position))
+        holder.bindItem(getItem(position) ?: ArticlesItem())
     }
 
     inner class ArticlesItemViewHolder(private val binding: ListItemNewsGridBinding) :
@@ -45,7 +46,7 @@ class HomeAllNewsAdapter : ListAdapter<ArticlesItem, HomeAllNewsAdapter.Articles
         init {
             itemView.setOnClickListener {
                 _onClick?.let {
-                    it(bindingAdapterPosition, getItem(bindingAdapterPosition))
+                    it(bindingAdapterPosition, getItem(bindingAdapterPosition) ?: ArticlesItem())
                 }
             }
         }
