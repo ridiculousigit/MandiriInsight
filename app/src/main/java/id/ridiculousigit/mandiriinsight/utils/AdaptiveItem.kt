@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.common
+package id.ridiculousigit.mandiriinsight.utils
 
 import android.content.res.Resources
 import android.util.DisplayMetrics

@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.presentation.splash
+package id.ridiculousigit.mandiriinsight.view.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.presentation.load_more
+package id.ridiculousigit.mandiriinsight.view.load_more
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.size.ViewSizeResolver
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
 import id.ridiculousigit.mandiriinsight.R
-import id.ridiculousigit.mandiriinsight.common.toCustomDate
+import id.ridiculousigit.mandiriinsight.utils.toCustomDate
 import id.ridiculousigit.mandiriinsight.databinding.ListItemNewsGridBinding
 
 class LoadMoreAdapter : PagingDataAdapter<ArticlesItem, LoadMoreAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {

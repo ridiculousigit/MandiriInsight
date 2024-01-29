@@ -1,8 +1,8 @@
 package id.ridiculousigit.mandiriinsight.domain
 
 import androidx.paging.PagingData
-import id.ridiculousigit.mandiriinsight.common.UIState
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.utils.UIState
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
 import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {

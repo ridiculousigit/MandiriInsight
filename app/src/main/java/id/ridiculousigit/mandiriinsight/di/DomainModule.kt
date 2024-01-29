@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import id.ridiculousigit.mandiriinsight.data.remote.api.NewsApi
+import id.ridiculousigit.mandiriinsight.data.api.NewsApi
 import id.ridiculousigit.mandiriinsight.domain.NewsRepository
 import id.ridiculousigit.mandiriinsight.domain.NewsRepositoryImpl
 import id.ridiculousigit.mandiriinsight.domain.NewsUseCase

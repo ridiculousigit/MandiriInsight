@@ -4,10 +4,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import id.ridiculousigit.mandiriinsight.presentation.home.HomeAllNewsAdapter
-import id.ridiculousigit.mandiriinsight.presentation.home.HomeSearchAdapter
-import id.ridiculousigit.mandiriinsight.presentation.home.HomeHeadlineAdapter
-import id.ridiculousigit.mandiriinsight.presentation.load_more.LoadMoreAdapter
+import id.ridiculousigit.mandiriinsight.view.home.HomeAllNewsAdapter
+import id.ridiculousigit.mandiriinsight.view.home.HomeSearchAdapter
+import id.ridiculousigit.mandiriinsight.view.home.HomeHeadlineAdapter
+import id.ridiculousigit.mandiriinsight.view.load_more.LoadMoreAdapter
 
 @Module
 @InstallIn(ActivityComponent::class)

@@ -1,17 +1,13 @@
-package id.ridiculousigit.mandiriinsight.presentation.load_more
+package id.ridiculousigit.mandiriinsight.view.load_more
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -19,11 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
-import id.ridiculousigit.mandiriinsight.R
-import id.ridiculousigit.mandiriinsight.common.calculateSpanCount
+import id.ridiculousigit.mandiriinsight.utils.calculateSpanCount
 import id.ridiculousigit.mandiriinsight.databinding.FragmentLoadMoreBinding
-import id.ridiculousigit.mandiriinsight.presentation.home.HomeFragmentDirections
-import id.ridiculousigit.mandiriinsight.presentation.home.HomeSearchLoadStateAdapter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject

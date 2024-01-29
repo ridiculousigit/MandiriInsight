@@ -3,8 +3,8 @@ package id.ridiculousigit.mandiriinsight.domain
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import id.ridiculousigit.mandiriinsight.data.remote.api.NewsApi
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.data.api.NewsApi
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
 import retrofit2.HttpException
 import java.io.IOException
 

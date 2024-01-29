@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#1976D2</color> <!-- Warna header -->
-    <color name="colorPrimaryDark">#1565C0</color> <!-- Warna header (darker) -->
-    <color name="colorAccent">#FF4081</color> <!-- Warna tombol share -->
+    <color name="colorPrimary">#103A6C</color> <!-- Warna header -->
+    <color name="colorPrimaryDark">#103A6C</color> <!-- Warna header (darker) -->
+    <color name="colorAccent">#78B2E3</color> <!-- Warna tombol share -->
 </resources>

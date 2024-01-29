@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground"
-    tools:context=".presentation.detail.DetailFragment">
+    tools:context=".view.detail.DetailFragment">
 
     <!-- Header -->
     <RelativeLayout
         android:id="@+id/header_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary">
+        android:background="@color/colorAccent">
 
         <!-- Tombol Back -->
         <com.google.android.material.button.MaterialButton

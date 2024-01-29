@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.data.remote.model
+package id.ridiculousigit.mandiriinsight.data.model
 
 import com.google.gson.annotations.SerializedName
 

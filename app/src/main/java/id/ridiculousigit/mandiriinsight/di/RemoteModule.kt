@@ -11,8 +11,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import id.ridiculousigit.mandiriinsight.common.Constant.BASE_URL
-import id.ridiculousigit.mandiriinsight.data.remote.api.NewsApi
+import id.ridiculousigit.mandiriinsight.utils.Constant.BASE_URL
+import id.ridiculousigit.mandiriinsight.data.api.NewsApi
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

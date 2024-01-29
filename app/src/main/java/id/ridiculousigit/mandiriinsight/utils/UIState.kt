@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.common
+package id.ridiculousigit.mandiriinsight.utils
 
 sealed class UIState<T>(
     val data: T? = null,

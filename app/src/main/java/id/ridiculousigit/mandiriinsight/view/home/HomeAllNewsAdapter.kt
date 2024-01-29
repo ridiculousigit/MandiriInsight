@@ -1,18 +1,18 @@
-package id.ridiculousigit.mandiriinsight.presentation.home
+package id.ridiculousigit.mandiriinsight.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ListAdapter
 import coil.load
 import coil.size.ViewSizeResolver
 import id.ridiculousigit.mandiriinsight.R
-import id.ridiculousigit.mandiriinsight.common.toCustomDate
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
-import id.ridiculousigit.mandiriinsight.databinding.ListItemHeadlineBinding
+import id.ridiculousigit.mandiriinsight.utils.toCustomDate
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.databinding.ListItemNewsGridBinding
 
-class HomeHeadlineAdapter : ListAdapter<ArticlesItem, HomeHeadlineAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
+class HomeAllNewsAdapter : PagingDataAdapter<ArticlesItem, HomeAllNewsAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
 
     private var _onClick: ((position: Int, item: ArticlesItem) -> Unit)? = null
 
@@ -28,7 +28,7 @@ class HomeHeadlineAdapter : ListAdapter<ArticlesItem, HomeHeadlineAdapter.Articl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesItemViewHolder {
         return ArticlesItemViewHolder(
-            ListItemHeadlineBinding.inflate(
+            ListItemNewsGridBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -37,15 +37,15 @@ class HomeHeadlineAdapter : ListAdapter<ArticlesItem, HomeHeadlineAdapter.Articl
     }
 
     override fun onBindViewHolder(holder: ArticlesItemViewHolder, position: Int) {
-        holder.bindItem(getItem(position))
+        holder.bindItem(getItem(position) ?: ArticlesItem())
     }
 
-    inner class ArticlesItemViewHolder(private val binding: ListItemHeadlineBinding) :
+    inner class ArticlesItemViewHolder(private val binding: ListItemNewsGridBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener {
                 _onClick?.let {
-                    it(bindingAdapterPosition, getItem(bindingAdapterPosition))
+                    it(bindingAdapterPosition, getItem(bindingAdapterPosition) ?: ArticlesItem())
                 }
             }
         }

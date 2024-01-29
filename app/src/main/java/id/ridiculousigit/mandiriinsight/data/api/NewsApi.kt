@@ -1,7 +1,7 @@
-package id.ridiculousigit.mandiriinsight.data.remote.api
+package id.ridiculousigit.mandiriinsight.data.api
 
-import id.ridiculousigit.mandiriinsight.common.Constant.API_KEY
-import id.ridiculousigit.mandiriinsight.data.remote.model.NewsModel
+import id.ridiculousigit.mandiriinsight.utils.Constant.API_KEY
+import id.ridiculousigit.mandiriinsight.data.model.NewsModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -4,10 +4,10 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.google.gson.Gson
-import id.ridiculousigit.mandiriinsight.common.UIState
-import id.ridiculousigit.mandiriinsight.data.remote.api.NewsApi
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
-import id.ridiculousigit.mandiriinsight.data.remote.model.NewsErrorModel
+import id.ridiculousigit.mandiriinsight.utils.UIState
+import id.ridiculousigit.mandiriinsight.data.api.NewsApi
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.data.model.NewsErrorModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

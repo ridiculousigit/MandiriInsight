@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.presentation.load_more
+package id.ridiculousigit.mandiriinsight.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.ridiculousigit.mandiriinsight.databinding.ListItemLostOrFailedBinding
 
-class LoadMoreLoadStateAdapter(
+class HomeSearchLoadStateAdapter(
     private val onClick: () -> Unit
 ) : LoadStateAdapter<RecyclerView.ViewHolder>() {
     inner class ViewHolder(private val binding: ListItemLostOrFailedBinding) : RecyclerView.ViewHolder(binding.root) {

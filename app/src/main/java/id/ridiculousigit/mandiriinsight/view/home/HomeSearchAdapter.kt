@@ -1,25 +1,24 @@
-package id.ridiculousigit.mandiriinsight.presentation.home
+package id.ridiculousigit.mandiriinsight.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ListAdapter
 import coil.load
 import coil.size.ViewSizeResolver
 import id.ridiculousigit.mandiriinsight.R
-import id.ridiculousigit.mandiriinsight.common.toCustomDate
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.utils.toCustomDate
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
 import id.ridiculousigit.mandiriinsight.databinding.ListItemNewsGridBinding
 
-class HomeAllNewsAdapter : PagingDataAdapter<ArticlesItem, HomeAllNewsAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
+class HomeSearchAdapter : PagingDataAdapter<ArticlesItem, HomeSearchAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
 
     private var _onClick: ((position: Int, item: ArticlesItem) -> Unit)? = null
 
     private object ArticlesItemComparator : DiffUtil.ItemCallback<ArticlesItem>() {
         override fun areItemsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {
-            return oldItem.url == newItem.url
+            return oldItem.title == newItem.title
         }
 
         override fun areContentsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {

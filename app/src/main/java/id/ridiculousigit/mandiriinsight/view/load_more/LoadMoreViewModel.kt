@@ -1,11 +1,11 @@
-package id.ridiculousigit.mandiriinsight.presentation.load_more
+package id.ridiculousigit.mandiriinsight.view.load_more
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
 import id.ridiculousigit.mandiriinsight.domain.NewsUseCase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

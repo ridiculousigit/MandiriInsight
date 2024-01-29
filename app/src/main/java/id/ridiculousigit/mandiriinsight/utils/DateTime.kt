@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.common
+package id.ridiculousigit.mandiriinsight.utils
 
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime

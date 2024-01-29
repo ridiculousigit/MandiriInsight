@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.common
+package id.ridiculousigit.mandiriinsight.utils
 
 object Constant {
     const val BASE_URL = "https://newsapi.org/v2/"

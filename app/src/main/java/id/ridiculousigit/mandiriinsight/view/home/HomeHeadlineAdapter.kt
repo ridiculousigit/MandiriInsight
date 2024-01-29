@@ -1,24 +1,24 @@
-package id.ridiculousigit.mandiriinsight.presentation.home
+package id.ridiculousigit.mandiriinsight.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import coil.load
 import coil.size.ViewSizeResolver
 import id.ridiculousigit.mandiriinsight.R
-import id.ridiculousigit.mandiriinsight.common.toCustomDate
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
-import id.ridiculousigit.mandiriinsight.databinding.ListItemNewsGridBinding
+import id.ridiculousigit.mandiriinsight.utils.toCustomDate
+import id.ridiculousigit.mandiriinsight.data.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.databinding.ListItemHeadlineBinding
 
-class HomeSearchAdapter : PagingDataAdapter<ArticlesItem, HomeSearchAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
+class HomeHeadlineAdapter : ListAdapter<ArticlesItem, HomeHeadlineAdapter.ArticlesItemViewHolder>(ArticlesItemComparator) {
 
     private var _onClick: ((position: Int, item: ArticlesItem) -> Unit)? = null
 
     private object ArticlesItemComparator : DiffUtil.ItemCallback<ArticlesItem>() {
         override fun areItemsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {
-            return oldItem.title == newItem.title
+            return oldItem.url == newItem.url
         }
 
         override fun areContentsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {
@@ -28,7 +28,7 @@ class HomeSearchAdapter : PagingDataAdapter<ArticlesItem, HomeSearchAdapter.Arti
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesItemViewHolder {
         return ArticlesItemViewHolder(
-            ListItemNewsGridBinding.inflate(
+            ListItemHeadlineBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -37,15 +37,15 @@ class HomeSearchAdapter : PagingDataAdapter<ArticlesItem, HomeSearchAdapter.Arti
     }
 
     override fun onBindViewHolder(holder: ArticlesItemViewHolder, position: Int) {
-        holder.bindItem(getItem(position) ?: ArticlesItem())
+        holder.bindItem(getItem(position))
     }
 
-    inner class ArticlesItemViewHolder(private val binding: ListItemNewsGridBinding) :
+    inner class ArticlesItemViewHolder(private val binding: ListItemHeadlineBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener {
                 _onClick?.let {
-                    it(bindingAdapterPosition, getItem(bindingAdapterPosition) ?: ArticlesItem())
+                    it(bindingAdapterPosition, getItem(bindingAdapterPosition))
                 }
             }
         }

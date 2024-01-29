@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.presentation
+package id.ridiculousigit.mandiriinsight.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

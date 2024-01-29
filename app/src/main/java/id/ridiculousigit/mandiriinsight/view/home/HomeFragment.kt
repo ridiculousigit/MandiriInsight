@@ -1,4 +1,4 @@
-package id.ridiculousigit.mandiriinsight.presentation.home
+package id.ridiculousigit.mandiriinsight.view.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,12 +19,10 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import id.ridiculousigit.mandiriinsight.common.UIState
-import id.ridiculousigit.mandiriinsight.common.calculateSpanCount
-import id.ridiculousigit.mandiriinsight.data.remote.model.ArticlesItem
+import id.ridiculousigit.mandiriinsight.utils.UIState
+import id.ridiculousigit.mandiriinsight.utils.calculateSpanCount
 import id.ridiculousigit.mandiriinsight.databinding.FragmentHomeBinding
-import id.ridiculousigit.mandiriinsight.presentation.load_more.LoadMoreFragmentDirections
-import id.ridiculousigit.mandiriinsight.presentation.load_more.LoadMoreLoadStateAdapter
+import id.ridiculousigit.mandiriinsight.view.load_more.LoadMoreLoadStateAdapter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
